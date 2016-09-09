@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="acadgild">
+	<head>
+		<title>Assignment 13.3</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular-route.min.js"></script>
+		<script>
+			var myapp = angular.module('acadgild', ['ngRoute']);
+
+			myapp.controller('mycontroller1', function($scope) {
+				$scope.name = ["Garima","Rishi","Razat","Kavya"];
+			});
+
+			myapp.config(function($routeProvider) {
+				$routeProvider.when('/t1',{
+					templateUrl: 'test1.html'
+				}).when('/t2', {
+					templateUrl: 'test2.html'
+				}).when('/t3', {
+					templateUrl: 'test3.html'
+				}).when('/t4', {
+					templateUrl: 'test4.html'
+				}).otherwise({
+					redirectTo: 'test1.html'
+				});
+			});
+
+		</script>
+		<style>
+			#block {
+				width: "60%";
+				height: 300px;
+				background-color: lightgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="block">
+			<div ng-view>
+			</div>
+		</div>
+	</body>
+</html>
